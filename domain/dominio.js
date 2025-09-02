@@ -2,6 +2,8 @@ import {remove} from "lodash-es";
 import {isEmpty, max, maxBy, values} from "lodash-es";
 import {sumBy} from "lodash-es";
 
+//lodash ta piolanga
+
 export class Plato {
   nombre;
   categoria;
@@ -19,7 +21,7 @@ export class Plato {
   }
 
   esDeCategoria(categoria) {
-    this.categoria = categoria;
+    return this.categoria == categoria;
   }
 }
 
@@ -67,7 +69,7 @@ export class Comanda {
     return values(Categoria).filter(categoria => categoria !== Categoria.BEBIDA && this.estaLista(categoria));
   }
 
-  estado() {
+  estado() { // lo tomamos como atributo calculable, lo chequeo cuando lo necesito
     if (isEmpty(this.categoriasListas())) {
       return EstadoComanda.INGRESADO
     } else if (this.pagado) {
@@ -144,6 +146,7 @@ export class PlatoPedido {
   }
 }
 
+//El menu vendria a ser un repositorio de platos
 export const Menu = {
   platos: [],
 
